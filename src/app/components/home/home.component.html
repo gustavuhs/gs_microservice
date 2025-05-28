@@ -1,1 +1,11 @@
-<p>home works!</p>
+<h1>{{ title }}</h1>
+
+<section *ngIf="showDescription">
+  <p>{{ description }}</p>
+  <p><strong>Data do Evento:</strong> {{ eventDate }}</p>
+</section>
+
+<h3>Destaques:</h3>
+<ul>
+  <li *ngFor="let item of highlights">{{ item }}</li>
+</ul>
