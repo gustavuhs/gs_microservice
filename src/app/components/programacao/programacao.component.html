@@ -1,19 +1,30 @@
 <style>
   .card {
-  padding: 16px;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-}
+    padding: 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+
+    button {
+      margin-top: 8px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+  }
 
 </style>
 
-<div class="card" [appHoverBorder]="'#FF5100'">
-  <h3>Hackathon de Inovação</h3>
-  <p>Desenvolvedores e designers se unem por 24 horas para criar soluções tecnológicas com impacto social.</p>
-</div>
+<div class="card" *ngFor="let evento of eventos" [appHoverBorder]="evento.cor">
 
-<div class="card" [appHoverBorder]="'#007BFF'">
-  <h3>Painel: O Futuro da Inteligência Artificial</h3>
-  <p>Especialistas discutem tendências, desafios éticos e aplicações práticas da IA no mercado atual.</p>
+  <h3>{{ evento.nome }}</h3>
+  <p>{{ evento.descricao }}</p>
+
+  <button *ngIf="!inscricoes.has(evento.nome)" (click)="participar(evento.nome)">
+    Participar
+  </button>
+
+  <div *ngIf="inscricoes.has(evento.nome)">
+    <p>✅ Você se inscreveu no evento: <strong>{{ evento.nome }}</strong></p>
+    <button (click)="sairDoEvento(evento.nome)">Sair do Evento</button>
+  </div>
 </div>
