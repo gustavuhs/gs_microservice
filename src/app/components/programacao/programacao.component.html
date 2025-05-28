@@ -14,19 +14,21 @@
 
 </style>
 
-<div class="card" *ngFor="let evento of eventos" [appHoverBorder]="evento.cor">
-
-  <h3>{{ evento.nome }}</h3>
-  <p>{{ evento.descricao }}</p>
+<div class="card" *ngFor="let evento of eventos" [appHoverBorder]="'#FF5100'">
+  <h3>{{ evento.titulo }}</h3>
+  <p><strong>Data:</strong> {{ evento.data }}</p>
+  <p><strong>Horário:</strong> {{ evento.horario }}</p>
+  <p><strong>Local:</strong> {{ evento.local }}</p>
 
   <p style="color: red">Questão 9</p>
-  <button *ngIf="!inscricoes.has(evento.nome)" (click)="participar(evento.nome)">
+
+  <button *ngIf="!inscricoes.has(evento.titulo)" (click)="participar(evento.titulo)">
     Participar
   </button>
 
-  <div *ngIf="inscricoes.has(evento.nome)">
-    <p>✅ Você se inscreveu no evento: <strong>{{ evento.nome }}</strong></p>
-    <button (click)="sairDoEvento(evento.nome)">Sair do Evento</button>
+  <div *ngIf="inscricoes.has(evento.titulo)">
+    <p>✅ Você se inscreveu no evento: <strong>{{ evento.titulo }}</strong></p>
+    <button (click)="sairDoEvento(evento.titulo)">Sair do Evento</button>
   </div>
 </div>
 

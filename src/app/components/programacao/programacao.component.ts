@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HoverBorderDirective } from '../../directives/hover-border.directive';
 import { EventoCardComponent } from '../evento-card/evento-card.component';
+import { Evento } from '../../models/evento.model';
 @Component({
   selector: 'app-programacao',
   standalone: true,
@@ -10,16 +11,20 @@ import { EventoCardComponent } from '../evento-card/evento-card.component';
   styleUrls: ['./programacao.component.css']
 })
 export class ProgramacaoComponent {
-  eventos = [
+  eventos: Evento[] = [
     {
-      nome: 'Hackathon de Inovação',
-      descricao: 'Desenvolvedores e designers se unem por 24 horas para criar soluções tecnológicas com impacto social.',
-      cor: '#FF5100'
+      id: 1,
+      titulo: 'Hackathon de Inovação',
+      data: '26 de maio',
+      horario: '14H00',
+      local: 'ONLINE'
     },
     {
-      nome: 'Painel: O Futuro da Inteligência Artificial',
-      descricao: 'Especialistas discutem tendências, desafios éticos e aplicações práticas da IA no mercado atual.',
-      cor: '#007BFF'
+      id: 2,
+      titulo: 'Painel de Inteligência Artificial',
+      data: '27 de maio',
+      horario: '19H00',
+      local: 'Presencial'
     }
   ];
 
