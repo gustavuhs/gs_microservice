@@ -19,6 +19,7 @@
   <h3>{{ evento.nome }}</h3>
   <p>{{ evento.descricao }}</p>
 
+  <p style="color: red">Questão 9</p>
   <button *ngIf="!inscricoes.has(evento.nome)" (click)="participar(evento.nome)">
     Participar
   </button>
@@ -28,3 +29,13 @@
     <button (click)="sairDoEvento(evento.nome)">Sair do Evento</button>
   </div>
 </div>
+
+<h3 style="color: red">Questão 10</h3>
+<app-evento-card
+  [titulo]="'Kick-off'"
+  [data]="'26 de maio'"
+  [horario]="'19H00'"
+  [local]="'ONLINE'">
+</app-evento-card>
+
+
